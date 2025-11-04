@@ -34,8 +34,8 @@
                   <th>Blog Name</th>
                   <th>Blog Image</th>
                   <th>Description</th>
-                  <th>Created On</th>
-                  <th>Published On</th>
+                  <th>Youtube Link</th>
+                  <th>Tags</th>
                   <th class="text-center">Edit</th>
                   <th class="text-center">Delete</th>
                 </tr>
@@ -51,8 +51,8 @@
                   <td class="text-truncate">
                     {{ data.description }}
                   </td>
-                  <td>{{ data.created_at }}</td>
-                  <td>{{ data.updated_at }}</td>
+                  <td>{{ data.youtubeLink }}</td>
+                  <td>{{ data.tags}}</td>
                   <td class="text-center">
                     <a class="btn btn-success btn-sm" [routerLink]="['edit-blog', data._id]">Edit</a>
                   </td>

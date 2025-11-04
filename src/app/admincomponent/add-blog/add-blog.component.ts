@@ -25,7 +25,8 @@ export class AddBlogComponent implements OnInit {
     private route : Router
   ) {
     this.myForm = this.fb.group({
-      image: [null, Validators.required],
+      youtubeLink: ['', Validators.required],
+       tags: [[], Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
     });
@@ -56,7 +57,7 @@ export class AddBlogComponent implements OnInit {
   onSubmit(frm: FormGroup) {
     if (frm.valid) {
       this.isLoading = true;
-      this.api.post('blogs', frm.value).subscribe(
+      this.api.post('vlogs', frm.value).subscribe(
         (res: any) => {
           this.isLoading = false;
           if (res) {

@@ -34,7 +34,8 @@ data: any;
   ) {
     this.env = environment.url
     this.myForm = this.fb.group({
-      image: [null, Validators.required],
+      youtubeLink: ['', Validators.required],
+       tags: [[], Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
     });
@@ -48,7 +49,7 @@ data: any;
   }
 
   fetchAllBlogs() {
-    this._blogService.get('blogs',{}).subscribe(res => {
+    this._blogService.get('vlogs',{}).subscribe(res => {
       this.getData = res;
       console.log(this.getData.length)
     });
@@ -68,7 +69,7 @@ data: any;
     const modalRef = this.modalService.open(this.confirmDeleteModal, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.result.then((result) => {
       if (result === 'Delete' && this.blogToDeleteId) {
-        this._blogService.delete('blogs',this.blogToDeleteId).subscribe(res => {
+        this._blogService.delete('vlogs',this.blogToDeleteId).subscribe(res => {
           console.log(res);
           this.fetchAllBlogs();
         });
@@ -120,7 +121,7 @@ data: any;
             const imagePath = body.file.path;
             this.selectedBlog.image = imagePath;
             console.log('blog', this.selectedBlog)
-            this._blogService.put('blogs',this.selectedBlog._id, this.selectedBlog).subscribe(res => {
+            this._blogService.put('vlogs',this.selectedBlog._id, this.selectedBlog).subscribe(res => {
               this.fetchAllBlogs();
               modal.close(); 
             });

@@ -38,8 +38,8 @@ export class LoginComponent {
         next: (resp: any) => {
           this.isLoading = false;  // Set loading state to false
           
-          if (resp.success) {
-            this.tokenService.setToken(resp.accessToken, resp.refreshToken);
+          if (resp) {
+            this.tokenService.setToken(resp.token, resp.token);
             this.tokenService.setUser(resp.user);
             this.router.navigate(['/admin/dashboard']);
             alert("Login Successfully")

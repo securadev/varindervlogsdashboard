@@ -26,7 +26,8 @@ export class EditBlogComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.myForm = this.fb.group({
-      image: [null],
+      youtubeLink: [''],
+       tags: [[], Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
     });
@@ -43,10 +44,10 @@ export class EditBlogComponent implements OnInit {
   }
 
   fetchBlogById(id: string) {
-    this._blogService.get(`blogs/${id}`, {}).subscribe(
+    this._blogService.get(`vlogs/${id}`, {}).subscribe(
       (res) => {
-        if (res && res.data && res.data._id) {
-          this.selectedBlog = res.data;
+        if (res) {
+          this.selectedBlog = res;
           
           
           if (this.selectedBlog.image && !this.selectedBlog.image.startsWith('http')) {
@@ -73,7 +74,8 @@ export class EditBlogComponent implements OnInit {
     this.myForm.patchValue({
       title: this.selectedBlog.title,
       description: this.selectedBlog.description,
-      image: null
+      youtubeLink: this.selectedBlog.youtubeLink,
+      tags: this.selectedBlog.tags
     });
   }
 
@@ -137,7 +139,7 @@ export class EditBlogComponent implements OnInit {
   
 
   updateBlog() {
-    this._blogService.put('blogs', this.selectedBlog._id, this.selectedBlog).subscribe(
+    this._blogService.put('vlogs', this.selectedBlog._id, this.myForm.value).subscribe(
       () => {
         alert('Blog updated successfully');
         this.router.navigate(['/admin/blogs']);

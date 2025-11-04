@@ -7,7 +7,7 @@ const routes: Routes = [
   // Default route - redirect to home
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
   

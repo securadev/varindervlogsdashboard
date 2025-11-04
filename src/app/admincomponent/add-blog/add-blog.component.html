@@ -13,7 +13,7 @@
       </div>
 
       <div class="container">
-        <form [formGroup]="myForm" (ngSubmit)="uploadImage(myForm)" id="blog_form">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" id="blog_form">
           <div class="row">
             <div class="form-group col-lg-12">
               <label for="title">Blog Name ( <span class="text-danger">required *</span>)</label>
@@ -25,15 +25,27 @@
               <textarea class="form-control" id="description" formControlName="description" rows="5"></textarea>
               <p class="text-danger">Max Character Count : 1500 Character</p>
             </div>
+            <div class="form-group col-lg-12">
+              <label for="description">youtubeLink ( <span class="text-danger">required *</span>)</label>
+              <textarea class="form-control" id="description" formControlName="youtubeLink" rows="5"></textarea>
+              <p class="text-danger">Max Character Count : 1500 Character</p>
+            </div>
 
-            <div class="form-group col-lg-4">
+            <div class="form-group col-lg-12">
+              <label for="description">Tags ( <span class="text-danger">required *</span>)</label>
+              <textarea class="form-control" id="description" formControlName="tags" rows="5"></textarea>
+              <p class="text-danger">Max Character Count : 1500 Character</p>
+            </div>
+
+
+            <!-- <div class="form-group col-lg-4">
               <label for="blog_image">Blog Image ( <span class="text-danger">required *</span>)</label>
               <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
                 <ngx-dropzone-label>Drag and drop an image here, or click to select an image</ngx-dropzone-label>
                 <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of image" [file]="f" (removed)="onRemove(f)">
                 </ngx-dropzone-image-preview>
               </div><br>
-            </div>
+            </div> -->
             <hr>
             <div class="d-flex justify-content-center">
               <button type="submit" class="btn btn-primary">Add</button>

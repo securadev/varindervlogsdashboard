@@ -23,7 +23,7 @@ export class AuthService {
 
   login(data:any) {
     console.log('Backend URL:', environment.url);  // Add this line
-    return this.http.post(`${environment.url}/auth/login`, data);
+    return this.http.post(`${environment.url}/login`, data);
   }
 
   isLoggedIn(): boolean {

@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="container">
-                <form [formGroup]="myForm" (ngSubmit)="uploadImage()" id="blog_form">
+                <form [formGroup]="myForm" (ngSubmit)="updateBlog()" id="blog_form">
                     <div class="row">
                         <div class="form-group col-lg-12">
                             <label for="title">Project Name ( <span class="text-danger">required *</span>)</label>
@@ -24,7 +24,17 @@
                             <textarea class="form-control" id="description" formControlName="description" rows="5" required></textarea>
                             <p class="text-danger">Max Character Count: 600 Characters</p>
                         </div>
-                        <div class="preview-image" *ngIf="selectedBlog.image">
+                         <div class="form-group col-lg-12">
+                            <label for="description">youtubeLink( <span class="text-danger">required *</span>)</label>
+                            <textarea class="form-control" id="description" formControlName="youtubeLink" rows="5" required></textarea>
+                            <p class="text-danger">Max Character Count: 600 Characters</p>
+                        </div>
+                         <div class="form-group col-lg-12">
+                            <label for="description">tags ( <span class="text-danger">required *</span>)</label>
+                            <textarea class="form-control" id="description" formControlName="tags" rows="5" required></textarea>
+                            <p class="text-danger">Max Character Count: 600 Characters</p>
+                        </div>
+                        <!-- <div class="preview-image" *ngIf="selectedBlog.image">
                             <img 
                             style="width: 200px; height: 200px;" 
                             [src]="(selectedBlog.image.startsWith('http') || selectedBlog.image.startsWith('/')) ? selectedBlog.image : env + '/'  + selectedBlog.image" 
@@ -37,7 +47,7 @@
                                 <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" *ngFor="let f of image" [file]="f" (removed)="onRemove(f)">
                                 </ngx-dropzone-image-preview>
                             </div><br>
-                        </div>
+                        </div> -->
                         <hr>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">Update</button>
